@@ -1,11 +1,18 @@
 <template>
   <div class="form-layout-wraper">
     <slot />
-    <PostButtom text="ログイン" />
+    <PostButtom :text="text" />
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+defineProps({
+  text: {
+    type: String,
+    default: "",
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 .form-layout-wraper {
