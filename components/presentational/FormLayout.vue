@@ -1,7 +1,7 @@
 <template>
   <div class="form-layout-wraper">
     <slot />
-    <PostButtom :text="text" />
+    <PostButtom :text="text" :onClick="onClick" />
   </div>
 </template>
 
@@ -10,6 +10,10 @@ defineProps({
   text: {
     type: String,
     default: "",
+  },
+  onClick: {
+    type: Function,
+    default: () => {},
   },
 });
 </script>

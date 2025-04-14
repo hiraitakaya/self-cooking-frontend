@@ -3,11 +3,12 @@
     <div class="register">
       <LogoAndImage />
       <div class="register-form-wrapper">
-        <FormLayout class="register-form" text="新規登録">
+        <FormLayout class="register-form" text="新規登録" :onClick="container.register">
           <TitleAndTextbox
             v-for="constant in container.constants"
             :title="constant.title"
             :type="constant.type"
+            v-model="constant.model"
           />
         </FormLayout>
       </div>
@@ -42,7 +43,6 @@ const container = useRegisterContainer();
     padding: 20px;
     border: solid 1px #ccc;
     border-radius: 8px;
-    width: 16vw;
   }
 
   .register-form {

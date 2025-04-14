@@ -1,6 +1,6 @@
 <template>
   <div class="post-button-wrapper">
-    <button class="post-button">{{ text }}</button>
+    <button class="post-button" @click="onClick">{{ text }}</button>
   </div>
 </template>
 
@@ -9,6 +9,10 @@ defineProps({
   text: {
     type: String,
     required: true,
+  },
+  onClick: {
+    type: Function,
+    default: () => {},
   },
 });
 </script>

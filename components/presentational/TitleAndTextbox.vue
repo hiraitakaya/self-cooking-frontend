@@ -2,22 +2,18 @@
   <div class="title-and-textbox-wrapper">
     <div class="title-and-textbox">
         <h1 class="title-and-textbox_title">{{ title }}</h1>
-        <input class="title-and-textbox_textbox" :type="type"></input>
+        <input class="title-and-textbox_textbox" :type="type" :value="props.modelValue.value"
+        @input="modelValue.value = ($event.target as HTMLInputElement).value"></input>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-    default: "text",
-  },
-});
+const props = defineProps<{
+  title: string;
+  type?: string;
+  modelValue: Ref<string>;
+}>();
 </script>
 
 <style lang="scss" scoped>
