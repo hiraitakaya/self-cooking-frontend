@@ -3,11 +3,12 @@
     <div class="login">
       <LogoAndImage />
       <div class="login-form-wrapper">
-        <FormLayout class="login-form" text="ログイン">
+        <FormLayout class="login-form" text="ログイン" :onClick="container.login">
           <TitleAndTextbox
             v-for="constant in container.constants"
             :title="constant.title"
             :type="constant.type"
+            v-model="constant.model"
           />
         </FormLayout>
         <NuxtLink to="/register" class="register-link">新規登録へ</NuxtLink>
@@ -43,7 +44,6 @@ const container = useLoginContainer();
     padding: 20px;
     border: solid 1px #ccc;
     border-radius: 8px;
-    width: 16vw;
   }
 
   .login-form {
