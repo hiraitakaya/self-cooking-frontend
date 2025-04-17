@@ -1,9 +1,9 @@
 <template>
-  <div class="login-wrapper">
-    <div class="login">
+  <div class="register-wrapper">
+    <div class="register">
       <LogoAndImage />
-      <div class="login-form-wrapper">
-        <FormLayout class="login-form" text="ログイン" :onClick="container.login">
+      <div class="register-form-wrapper">
+        <FormLayout class="register-form" text="新規登録" :onClick="container.register">
           <TitleAndTextbox
             v-for="constant in container.constants"
             :title="constant.title"
@@ -11,20 +11,19 @@
             v-model="constant.model"
           />
         </FormLayout>
-        <NuxtLink to="/register" class="register-link">新規登録へ</NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useLoginContainer } from "@/components/composables/containers/loginContainer";
+import { useRegisterContainer } from "@/components/composables/containers/registerContainer";
 
-const container = useLoginContainer();
+const container = useRegisterContainer();
 </script>
 
 <style lang="scss" scoped>
-.login-wrapper {
+.register-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +31,7 @@ const container = useLoginContainer();
   gap: 20px;
 }
 
-.login {
+.register {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,13 +39,13 @@ const container = useLoginContainer();
   width: 100%;
   gap: 20px;
 
-  .login-form-wrapper {
+  .register-form-wrapper {
     padding: 20px;
     border: solid 1px #ccc;
     border-radius: 8px;
   }
 
-  .login-form {
+  .register-form {
     width: 100%;
     margin-bottom: 20px;
     max-width: 600px;
